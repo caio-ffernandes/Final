@@ -1,14 +1,14 @@
 from pydantic import BaseModel
 
 class ResponsavelCreate(BaseModel):
-    nome_responsavel: str
+    nome: str
 
 class ResponsavelRead(BaseModel):
-    id_responsavel: int
-    nome_responsavel: str
+    id_tipos_resps: int
+    nome: str
 
 class ResponsavelUpdate(BaseModel):
-    nome_responsavel: str
+    nome_resp: str
 
 class ResponsavelReadMany(BaseModel):
-    responsavels: list[ResponsavelCreate]
+    responsaveis: list[ResponsavelRead]
