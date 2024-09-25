@@ -29,9 +29,21 @@ app.add_middleware(
 def status():
     return {"message": "Hello World"}
 
-@app.get("/static/uploads/{image_name}")
+@app.get("/images/{image_name}")
 async def serve_image(image_name: str):
-    image_path = f"images/{image_name}"
+    image_path = f"static/uploads/{image_name}"
+    if os.path.exists(image_path):
+        return FileResponse(image_path)
+    return {"error": "Image not found"}
+@app.get("/posts/{image_name}")
+async def post_image(image_name: str):
+    image_path = f"static/uploads/posts/{image_name}"
+    if os.path.exists(image_path):
+        return FileResponse(image_path)
+    return {"error": "Image not found"}
+@app.get("/responsaveis/{image_name}")
+async def responsaveis_image(image_name: str):
+    image_path = f"static/uploads/responsaveis/{image_name}"
     if os.path.exists(image_path):
         return FileResponse(image_path)
     return {"error": "Image not found"}
