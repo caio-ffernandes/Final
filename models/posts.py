@@ -6,8 +6,8 @@ class PostsDB(Model):
     id_post = AutoField()
     nome_post = CharField()
     descricao_post = TextField()
-    imagem_post = CharField(null=True)  # Permitir valores nulos
-    subcategorias_id_subcategoria = ForeignKeyField(
+    imagem_post = CharField(null=True)  # Campo para armazenar o caminho da imagem
+    subcategorias = ForeignKeyField(
         SubcategoriasDB, backref='posts', column_name='subcategorias_id_subcategoria'
     )
 

@@ -16,13 +16,18 @@ def startup_db():
     from models.posts import PostsDB
     from models.subcategorias import SubcategoriasDB
     from models.tipo_responsavel import Tipo_RespDB
-
+    from models.responsaveis import ResponsaveisDB
+    from models.usuarios import UsuariosDB
+    from models.usuariospost import UsuariosHasPostsDB
     database.create_tables(
         [
             CulturaDB,
             PostsDB,
             SubcategoriasDB,
-            Tipo_RespDB
+            Tipo_RespDB,
+            ResponsaveisDB,
+            UsuariosDB,
+            UsuariosHasPostsDB
         ]
     )
 

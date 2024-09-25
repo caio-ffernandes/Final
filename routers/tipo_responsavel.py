@@ -7,7 +7,7 @@ from schemas.tipo_responsavel import (
     ResponsavelUpdate
 )
 
-router = APIRouter(prefix='/responsaveis', tags=['RESPONSAVEIS'])
+router = APIRouter(prefix='/tipos-responsaveis', tags=['TIPOS-RESPONSAVEIS'])
 
 @router.post('', response_model=ResponsavelRead)
 def criar_responsavel(novo_responsavel: ResponsavelCreate):
