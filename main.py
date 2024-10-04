@@ -1,4 +1,4 @@
-from fastapi import  FastAPI
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from fastapi.responses import FileResponse
@@ -35,13 +35,13 @@ async def serve_image(image_name: str):
     if os.path.exists(image_path):
         return FileResponse(image_path)
     return {"error": "Image not found"}
-@app.get("/posts/{image_name}")
+@app.get("/postsimg/{image_name}")
 async def post_image(image_name: str):
     image_path = f"static/uploads/posts/{image_name}"
     if os.path.exists(image_path):
         return FileResponse(image_path)
     return {"error": "Image not found"}
-@app.get("/responsaveis/{image_name}")
+@app.get("/responsaveisimg/{image_name}")
 async def responsaveis_image(image_name: str):
     image_path = f"static/uploads/responsaveis/{image_name}"
     if os.path.exists(image_path):
