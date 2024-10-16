@@ -1,6 +1,6 @@
 from peewee import MySQLDatabase
 
-
+# Conexão com o banco de dados MySQL
 database = MySQLDatabase(
     'brasil',
     user='root',
@@ -8,10 +8,12 @@ database = MySQLDatabase(
     host='127.0.0.1',
     port=3306
 )
+
 def startup_db():
     if database.is_closed():
         database.connect()
 
+    # Importação dos modelos
     from models.culturas import CulturaDB
     from models.posts import PostsDB
     from models.subcategorias import SubcategoriasDB
@@ -19,6 +21,8 @@ def startup_db():
     from models.responsaveis import ResponsaveisDB
     from models.usuarios import UsuariosDB
     from models.usuariospost import UsuariosHasPostsDB
+
+    # Criação das tabelas
     database.create_tables(
         [
             CulturaDB,
@@ -32,4 +36,5 @@ def startup_db():
     )
 
 def shutdown_db():
-    database.close()
+    if not database.is_closed():
+        database.close()

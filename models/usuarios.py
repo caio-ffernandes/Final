@@ -7,6 +7,7 @@ class UsuariosDB(Model):
     email = CharField(max_length=100)
     senha = CharField(max_length=100)
     telefone = CharField(max_length=15, null=True)
+    tipo = CharField(max_length=20, default='comum')
 
     class Meta:
         database = database
