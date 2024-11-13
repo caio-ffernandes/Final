@@ -69,4 +69,4 @@ app.include_router(tipo_responsavel_router)
 app.include_router(responsaveis_router)
 app.include_router(usuarios_router)
 app.include_router(usuarios_posts_router)
-app.include_router(auth_router)  # Inclusão da rota de autenticação
+app.include_router(auth_router)
