@@ -1,14 +1,15 @@
-# fly.toml file for your app
-
-app = "final-grerhq"  # Nome da sua aplicação no Fly.io
-
 [build]
   builder = "heroku/builder:20"
 
+[processes]
+  app = "uvicorn main:app --host 0.0.0.0 --port 8080"  # Agora apontando para o main.py na raiz do projeto
+
 [[services]]
   internal_port = 8080
-  protocol = "tcp"
-  http_checks = []
+  processes = ["app"]
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
 
   [services.concurrency]
     hard_limit = 25
