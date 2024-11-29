@@ -1,7 +1,13 @@
-from peewee import SqliteDatabase
+from peewee import MySQLDatabase
 
 # Conexão com o banco de dados MySQL
-database = SqliteDatabase('database.db')
+database = MySQLDatabase(
+    'brasil',
+    user='root',
+    #password='root',
+    host='127.0.0.1',
+    port=3306
+)
 
 def startup_db():
     if database.is_closed():
